@@ -1,0 +1,27 @@
+#!/bin/bash
+#############################################################################################
+#Author      : Kottakota Nikhil
+#Date        : 24th-July-2026
+#version     : v1
+#Description : This script is written in bash which automates the installation of jdk
+##############################################################################################
+set -e
+
+echo "Updating package repository"
+sudo yum update -y
+
+JDK_VERSION=21
+echo "installing open jdk version $JDK_VERSION"
+sudo yum install -y  java-21-openjdk-devel
+
+JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))
+echo "Configuring java home.."
+echo "export JAVA_HOME=$JAVA_HOME">> ~/.bashrc
+echo "export PATH=\$JAVA_HOME/bin:\$PATH">> ~/.bashrc
+source ~/.bashrc
+echo "VERIFYING INSTALLATION"
+java -version
+javac -version
+echo $JAVA_HOME
+
+~
