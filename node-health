@@ -16,5 +16,4 @@ free -g
 
 nproc
 
-ps -ef | grep bash | awk -F " " '{print$2}'
 
