@@ -1,0 +1,20 @@
+#!/bin/bash
+##########################################
+#Author : Kottakota Nikhil
+#Date   : 22-07-2026
+#
+#This scripts outputs the node health
+#
+#Version: v1
+##########################################
+set -x # this gives the command before the execution
+set -e #it stops execution when there is an error occured
+set -o pipefail
+df -h
+
+free -g
+
+nproc
+
+ps -ef | grep bash | awk -F " " '{print$2}'
+
