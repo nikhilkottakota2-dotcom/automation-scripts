@@ -10,7 +10,7 @@ set -e
 echo "Updating package repository"
 sudo yum update -y
 
-JDK_VERSION=26
+JDK_VERSION=21
 echo "installing open jdk version $JDK_VERSION"
 sudo yum install -y  java-26-openjdk-devel
 
